@@ -84,10 +84,8 @@ def PlotSolvedMaze(maze, path=None):
     
     if path:
         h, w = maze.shape
-        transformedPath = [(y, h - 1 - x) for (x, y) in path]
-        transformedPath = [(x, h - 1 - y) for (x, y) in transformedPath]
 
-        yc, xc = zip(*transformedPath)
+        yc, xc = zip(*[(y, x) for (x, y) in path])
         plt.plot(xc, yc, color='red', linewidth=4)
 
     plt.axis('off')
